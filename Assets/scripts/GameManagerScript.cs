@@ -29,20 +29,21 @@ public class GameManagerScript : MonoBehaviour
             "bbbbbbbbbbbbbbbbbb" +
             "bbbbbbbbbbbbbbbbbb" ,
 
-            "bbbb          bbbb" +
-            "bbbb          bbbb" +
-            "bbbb          bbbb" +
-            "bbbbbbbbbbbbbbbbbb" +
-            "bbbb ddddddd bbbbb" +
-            "bbbb ddddddd bbbbb" +
-            "bbbb ddddddd bbbbb" +
-            "bbbb ddddddd bbbbb" +
-            "bbbb fffffff bbbbb" +
-            "bbbb fffffff bbbbb" +
-            "     bbbbbbb      " +
-            "     bbbbbbb      " +
-            "     bbbbbbb      " +
-            "     bbbbbbb      "
+            "                  " +
+            "                  " +
+            "  dddddddddddddd  " +
+            "  bbbbbbbbbbbbbb  " +
+            "  bbbbbbbbbbbbbb  " +
+            "  ffbbffbbffbbff  " +
+            "  ffbbffbbffbbff  " +
+            "  bbbbbbbbbbbbbb  " +
+            "  bbbbbbbbbbbbbb  " +
+            "  dddddddddddddd  " +
+            "                  " +
+            "                  " +
+            "                  " +
+            "                  " ,
+
 
 
     };
@@ -52,8 +53,8 @@ public class GameManagerScript : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-         CreateLevel(this.level);
-       // Instantiate(brickTypes[0], new Vector2(0f, 0f), Quaternion.identity);
+        CreateLevel(this.level);
+        // Instantiate(brickTypes[0], new Vector2(0f, 0f), Quaternion.identity);
     }
 
     // Update is called once per frame
@@ -82,7 +83,7 @@ public class GameManagerScript : MonoBehaviour
                 Instantiate(brickTypes[2], new Vector2(x, y), Quaternion.identity);
             }
             x += brickColStep;
-            
+
             index++;
             if (index == maxBrickOnLine)
             {
