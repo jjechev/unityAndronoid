@@ -77,6 +77,7 @@
     <Compile Include="Assets\scripts\Brick2Script.cs" />
     <Compile Include="Assets\scripts\Brick3Script.cs" />
     <Compile Include="Assets\scripts\GameManagerScript.cs" />
+    <Compile Include="Assets\scripts\Player.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>
