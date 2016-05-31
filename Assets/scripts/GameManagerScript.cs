@@ -57,7 +57,22 @@ public class GameManagerScript : MonoBehaviour
             "                  " +
             "                  " +
             "                  " +
-            "      bbbbbb      " +
+            "        ffffb     " +
+            "                  " +
+            "                  " +
+            "                  " +
+            "                  " +
+            "                  " +
+            "                  " ,
+
+            "                  " +
+            "                  " +
+            "                  " +
+            "  bbbbbbbbbbbbbb  " +
+            "  bbbbbbbbbbbbbb  " +
+            "  bbbbbbbbbbbbbb  " +
+            "  bbbbbbbbbbbbbb  " +
+            "  bbbbbbbbbbbbbb  " +
             "                  " +
             "                  " +
             "                  " +
@@ -101,7 +116,7 @@ public class GameManagerScript : MonoBehaviour
     void Update()
     {
         PrintOnScreen();
-       
+
     }
 
     void Init()
@@ -154,7 +169,17 @@ public class GameManagerScript : MonoBehaviour
         if (brickOnLevel == 0)
         {
             level++;
+            DestructionOfTheRemainingBricks();
             instance.CreateLevel(level);
+        }
+    }
+
+    private void DestructionOfTheRemainingBricks()
+    {
+        GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("brick");
+        foreach (GameObject target in gameObjects)
+        {
+            GameObject.Destroy(target);
         }
     }
 
@@ -172,8 +197,9 @@ public class GameManagerScript : MonoBehaviour
     {
         PrintLifes();
         scoreText.text = "Score: " + score;
-       
+
     }
+
     private void PrintLifes()
     {
         string currentLifes = "";
@@ -181,10 +207,12 @@ public class GameManagerScript : MonoBehaviour
         {
             currentLifes += "-";
         }
-        lifesText.text =currentLifes;
+        lifesText.text = currentLifes;
     }
+
     public void LostLife()
     {
         lifes--;
+        BallScript.instance.resetBallPosition();
     }
 }

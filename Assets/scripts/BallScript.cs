@@ -6,18 +6,48 @@ public class BallScript : MonoBehaviour
 
     public float speedX;
     public float speedY;
-   
+
+    float ballStartPositionX;
+    float ballStartPositionY;
+
+    public static BallScript instance;
+
+    int waitingTimeBeforeStartMoving = 200;
+
+    void Awake()
+    {
+        instance = this;
+    }
 
     // Use this for initialization
     void Start()
     {
+        ballStartPositionX = this.transform.position.x;
+        ballStartPositionY = this.transform.position.y;
     }
 
     // Update is called once per frame
     void Update()
     {
-        this.transform.Translate(1f * speedX, 1f * speedY, 0f);
-        
+        moveBall();
+    }
+
+    void moveBall()
+    {
+        if (waitingTimeBeforeStartMoving == 0)
+        {
+            this.transform.Translate(1f * speedX, 1f * speedY, 0f);
+        }
+        else
+        {
+            waitingTimeBeforeStartMoving--;
+        }
+    }
+
+    public void resetBallPosition()
+    {
+        transform.position = new Vector3(GameObject.FindGameObjectWithTag("player").transform.position.x, ballStartPositionY, 0);
+        waitingTimeBeforeStartMoving = 200;
     }
 
     public void OnCollisionEnter(Collision col)
