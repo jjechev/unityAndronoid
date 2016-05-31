@@ -25,7 +25,7 @@ public class Player : MonoBehaviour
 
             // Move object across XY plane
 
-            transform.Translate(touchDeltaPosition.y * 0.2f, 0f, 0f);
+            transform.Translate(touchDeltaPosition.x * 0.2f, 0f, 0f);
 
         }
     }

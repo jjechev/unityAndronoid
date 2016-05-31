@@ -49,15 +49,32 @@ public class GameManagerScript : MonoBehaviour
             "bbbbbbbbbbbbbbbbbb" +
             "bbbbbbbbbbbbbbbbbb" +
             "bbbbbbbbbbbbbbbbbb" ,
+            
+            //level 1
+            "                  " +
+            "                  " +
+            "                  " +
+            "                  " +
+            "                  " +
+            "                  " +
+            "                  " +
+            "    s       b     " +
+            "                  " +
+            "                  " +
+            "                  " +
+            "                  " +
+            "                  " +
+            "                  " ,
 
+            //level 1
             "                  " +
             "                  " +
             "                  " +
+            "  bbbbbbbbbbbbbb  " +
+            "  bbbbbbbbbbbbbb  " +
+            "  bbbbbbbbbbbbbb  " +
+            "  bbbbbbbbbbbbbb  " +
             "                  " +
-            "                  " +
-            "                  " +
-            "                  " +
-            "        ffffb     " +
             "                  " +
             "                  " +
             "                  " +
@@ -65,28 +82,46 @@ public class GameManagerScript : MonoBehaviour
             "                  " +
             "                  " ,
 
+            //level 2
             "                  " +
             "                  " +
             "                  " +
             "  bbbbbbbbbbbbbb  " +
             "  bbbbbbbbbbbbbb  " +
-            "  bbbbbbbbbbbbbb  " +
-            "  bbbbbbbbbbbbbb  " +
-            "  bbbbbbbbbbbbbb  " +
+            "  bbbddddddddbbb  " +
+            "  dddddddddddddd  " +
+            "                  " +
             "                  " +
             "                  " +
             "                  " +
             "                  " +
             "                  " +
             "                  " ,
+
+            //level 3
+            "                  " +
+            "                  " +
+            "bbbb              " +
+            "bbbbbb            " +
+            "bbbbbbbb          " +
+            "bbbbbbbbbb        " +
+            "bbbbbbbbbbbb      " +
+            "dddddddddddddd    " +
+            "ssssssssssssssss  " +
+            "                  " +
+            "                  " +
+            "                  " +
+            "                  " +
+            "                  " ,
+
 
             "                  " +
             "                  " +
             "  dddddddddddddd  " +
             "  bbbbbbbbbbbbbb  " +
             "  bbbbbbbbbbbbbb  " +
-            "  ffbbffbbffbbff  " +
-            "  ffbbffbbffbbff  " +
+            "  ssbbssbbssbbss  " +
+            "  ssbbssbbssbbss  " +
             "  bbbbbbbbbbbbbb  " +
             "  bbbbbbbbbbbbbb  " +
             "  dddddddddddddd  " +
@@ -133,17 +168,17 @@ public class GameManagerScript : MonoBehaviour
         int index = 0;
         foreach (char brick in levels[level])
         {
-            if (brick == 'b')
+            if (brick == 'b') // 1 hit
             {
                 brickOnLevel++;
                 Instantiate(brickTypes[0], new Vector2(x, y), Quaternion.identity);
             }
-            if (brick == 'd')
+            if (brick == 'd') // 2 hit
             {
                 brickOnLevel++;
                 Instantiate(brickTypes[1], new Vector2(x, y), Quaternion.identity);
             }
-            if (brick == 'f')
+            if (brick == 's') // solid
             {
                 Instantiate(brickTypes[2], new Vector2(x, y), Quaternion.identity);
             }
@@ -157,16 +192,18 @@ public class GameManagerScript : MonoBehaviour
                 index = 0;
             }
         }
+        Debug.Log(brickOnLevel);
     }
 
     public static void decreaseBricks()
     {
         brickOnLevel--;
+        Debug.Log(brickOnLevel);
     }
 
     public void CheckAndGoNextLevel()
     {
-        if (brickOnLevel == 0)
+        if (brickOnLevel < 1)
         {
             level++;
             DestructionOfTheRemainingBricks();
@@ -213,6 +250,6 @@ public class GameManagerScript : MonoBehaviour
     public void LostLife()
     {
         lifes--;
-        BallScript.instance.resetBallPosition();
+        //BallScript.instance.resetBallPosition();
     }
 }
