@@ -24,8 +24,7 @@ public class Player : MonoBehaviour
             Vector2 touchDeltaPosition = Input.GetTouch(0).deltaPosition;
 
             // Move object across XY plane
-
-            transform.Translate(touchDeltaPosition.x * 0.2f, 0f, 0f);
+            transform.Translate(touchDeltaPosition.x / 28, 0f, 0f);
 
         }
     }

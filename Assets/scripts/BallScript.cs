@@ -3,6 +3,7 @@ using System;
 
 public class BallScript : MonoBehaviour
 {
+    private AudioSource sound;
 
     public float speedX;
     public float speedY;
@@ -22,6 +23,8 @@ public class BallScript : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        sound = GetComponent<AudioSource>();
+
         ballStartPositionX = this.transform.position.x;
         ballStartPositionY = this.transform.position.y;
     }
@@ -59,6 +62,8 @@ public class BallScript : MonoBehaviour
 
     public void ChangeDirection(Collision col)
     {
+        sound.Play();
+
         if (col.collider.tag == "player")
         {
             speedX = -((col.transform.position.x - this.transform.position.x) / col.transform.localScale.x / 5);
