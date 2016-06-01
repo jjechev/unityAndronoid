@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using System.Collections;
+using System;
 
 public class BallScript : MonoBehaviour
 {
@@ -48,6 +48,7 @@ public class BallScript : MonoBehaviour
     {
         transform.position = new Vector3(GameObject.FindGameObjectWithTag("player").transform.position.x, ballStartPositionY, 0);
         waitingTimeBeforeStartMoving = 200;
+        speedY = Math.Abs(speedY);
     }
 
     public void OnCollisionEnter(Collision col)
@@ -91,15 +92,17 @@ public class BallScript : MonoBehaviour
             float absoluteBrickX = col.transform.position.x;
             float absoluteBrickY = col.transform.position.y;
 
-            if (absoluteBrickX + brickMaxWidth / 2 < absoluteBallX ||
-                absoluteBrickX - brickMaxWidth / 2 > absoluteBallX
+            if (
+                    absoluteBrickX + brickMaxWidth / 2 < absoluteBallX ||
+                    absoluteBrickX - brickMaxWidth / 2 > absoluteBallX
                 )
             {
                 speedX = -speedX;
             }
 
-            if (absoluteBrickY + brickMaxHeight / 2 < absoluteBallY ||
-                absoluteBrickY - brickMaxHeight / 2 > absoluteBallY
+            if (
+                    absoluteBrickY + brickMaxHeight / 2 < absoluteBallY ||
+                    absoluteBrickY - brickMaxHeight / 2 > absoluteBallY
                 )
             {
                 speedY = -speedY;

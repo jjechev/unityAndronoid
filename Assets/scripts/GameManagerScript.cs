@@ -12,7 +12,7 @@ public class GameManagerScript : MonoBehaviour
     public Text scoreText;
     public Text lifesText;
 
-    public static int level = 1;
+    public static int level = 7;
 
     public static Color brick1Color;
     public static Color brick2Color;
@@ -86,9 +86,9 @@ public class GameManagerScript : MonoBehaviour
             "                  " +
             "                  " +
             "                  " +
-            "  bbbbbbbbbbbbbb  " +
-            "  bbbbbbbbbbbbbb  " +
-            "  bbbddddddddbbb  " +
+            "        bb        " +
+            "      bbbbbb      " +
+            "    bddddddddb    " +
             "  dddddddddddddd  " +
             "                  " +
             "                  " +
@@ -109,6 +109,55 @@ public class GameManagerScript : MonoBehaviour
             "dddddddddddddd    " +
             "ssssssssssssssss  " +
             "                  " +
+            "                  " +
+            "                  " +
+            "                  " +
+            "                  " ,
+
+
+            //level 4
+            "                  " +
+            "                  " +
+            "  dddddddddddddd  " +
+            "                  " +
+            "  bbbbbbbbbbbbbb  " +
+            "                  " +
+            "  bbbbbbbbbbbbbb  " +
+            "                  " +
+            "  dddddddddddddd  " +
+            "                  " +
+            "                  " +
+            "                  " +
+            "                  " +
+            "                  " ,
+
+            //level 5
+            "                  " +
+            "                  " +
+            "  bb dd ss dd bb  " +
+            "  bb dd ss dd bb  " +
+            "  bb dd ss dd bb  " +
+            "  bb dd ss dd bb  " +
+            "  bb dd ss dd bb  " +
+            "  bb dd ss dd bb  " +
+            "  bb dd ss dd bb  " +
+            "                  " +
+            "                  " +
+            "                  " +
+            "                  " +
+            "                  " ,
+
+            //level 6
+            "                  " +
+            "                  " +
+            " dddddddddddddd s " +
+            " bbbbbbbbbbbbbb s " +
+            " bbbbbbbbbbbbbb s " +
+            " bbbbbbbbbbbbbb s " +
+            " bbbbbbbbbbbbbb s " +
+            " bbbbbbbbbbbbbb s " +
+            "                s " +
+            "sssssssssssssssss " +
             "                  " +
             "                  " +
             "                  " +
@@ -163,6 +212,8 @@ public class GameManagerScript : MonoBehaviour
 
     void CreateLevel(int level)
     {
+        DestructionOfTheRemainingBricks();
+
         float x = brickCanvasMinColPosition;
         float y = brickCanvasMinRowPosition;
         int index = 0;
@@ -206,7 +257,7 @@ public class GameManagerScript : MonoBehaviour
         if (brickOnLevel < 1)
         {
             level++;
-            DestructionOfTheRemainingBricks();
+            BallScript.instance.resetBallPosition();
             instance.CreateLevel(level);
         }
     }
@@ -233,7 +284,7 @@ public class GameManagerScript : MonoBehaviour
     private void PrintOnScreen()
     {
         PrintLifes();
-        scoreText.text = "Score: " + score;
+        scoreText.text = "SCORE: " + score;
 
     }
 
@@ -250,6 +301,12 @@ public class GameManagerScript : MonoBehaviour
     public void LostLife()
     {
         lifes--;
-        //BallScript.instance.resetBallPosition();
+        if (lifes == 0)
+        {
+            level = 1;
+            CreateLevel(level);
+        }
+
+        BallScript.instance.resetBallPosition();
     }
 }

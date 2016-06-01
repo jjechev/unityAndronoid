@@ -34,7 +34,7 @@ public class Player : MonoBehaviour
     {
         if (other.collider.tag == "ball")
         {
-            GameManagerScript.instance.CheckAndGoNextLevel();
+            //GameManagerScript.instance.CheckAndGoNextLevel();
         }
     }
 }

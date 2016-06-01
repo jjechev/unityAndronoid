@@ -31,6 +31,7 @@ public class Brick2Script : MonoBehaviour
         {
             this.gameObject.SetActive(false);
             GameManagerScript.decreaseBricks();
+            GameManagerScript.instance.CheckAndGoNextLevel();
         }
         else
         {
