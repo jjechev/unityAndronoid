@@ -55,6 +55,7 @@ public class BallScript : MonoBehaviour
     {
         transform.position = new Vector3(GameObject.FindGameObjectWithTag("player").transform.position.x, ballStartPositionY, 0);
         waitingTimeBeforeStartMoving = 200;
+        ballInPlay = false;
         speedY = Math.Abs(speedY);
     }
 
