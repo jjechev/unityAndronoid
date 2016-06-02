@@ -7,6 +7,9 @@ public class BallScript : MonoBehaviour
 
     public float speedX;
     public float speedY;
+    public float ballInitialVelocity = 600f;
+    
+    private Rigidbody rb;
 
     float ballStartPositionX;
     float ballStartPositionY;
@@ -19,6 +22,7 @@ public class BallScript : MonoBehaviour
     void Awake()
     {
         instance = this;
+         rb = GetComponent<Rigidbody>();
     }
 
     // Use this for initialization
