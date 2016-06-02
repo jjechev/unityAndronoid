@@ -10,7 +10,8 @@ public class BallScript : MonoBehaviour
 
     float ballStartPositionX;
     float ballStartPositionY;
-
+    private bool ballInPlay;
+    
     public static BallScript instance;
 
     int waitingTimeBeforeStartMoving = 200;
@@ -37,13 +38,12 @@ public class BallScript : MonoBehaviour
 
     void moveBall()
     {
-        if (waitingTimeBeforeStartMoving == 0)
+        if (Input.GetButtonDown("Fire1") && ballInPlay == false)
         {
-            this.transform.Translate(1f * speedX, 1f * speedY, 0f);
-        }
-        else
-        {
-            waitingTimeBeforeStartMoving--;
+            transform.parent = null;
+            ballInPlay = true;
+            rb.isKinematic = false;
+            rb.AddForce(new Vector3(ballInitialVelocity, ballInitialVelocity, 0));
         }
     }
 
