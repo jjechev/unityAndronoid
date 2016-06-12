@@ -42,7 +42,7 @@ public class BallScript : MonoBehaviour
 
     void moveBall()
     {
-        if (Input.GetButtonDown("Fire1") && ballInPlay == false)
+        if ( ballInPlay == false)
         {
             transform.parent = null;
             ballInPlay = true;
