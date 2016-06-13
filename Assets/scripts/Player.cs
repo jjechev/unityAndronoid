@@ -15,8 +15,11 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float moveX = Input.GetAxisRaw("Horizontal");
-        this.transform.Translate(moveX * speed, 0f, 0f);
+        //float moveX = Input.GetAxisRaw("Horizontal");
+        //this.transform.Translate(Mathf.Clamp(moveX, -9, 9) * speed, 0f, 0f);
+
+        float xPos = transform.position.x + (Input.GetAxisRaw("Horizontal") * speed);
+        transform.position = new Vector3(Mathf.Clamp(xPos, -9f, 9f), -4.5f, 0f); 
 
         if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved)
         {

@@ -12,7 +12,7 @@ public class GameManagerScript : MonoBehaviour
     public Text scoreText;
     public Text lifesText;
 
-    public static int level = 7;
+    public static int level = 1;
 
     public static Color brick1Color;
     public static Color brick2Color;
