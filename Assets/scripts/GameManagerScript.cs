@@ -12,7 +12,7 @@ public class GameManagerScript : MonoBehaviour
     public Text scoreText;
     public Text lifesText;
 
-    public static int level = 1;
+    public static int level = 4;
 
     public static Color brick1Color;
     public static Color brick2Color;
@@ -20,6 +20,8 @@ public class GameManagerScript : MonoBehaviour
     public Color brick1ColorEditor;
     public Color brick2ColorEditor;
     public Color brick3ColorEditor;
+
+    public Color[] brickColorEditor;
 
     public float brickCanvasMinRowPosition;
     public float brickCanvasMinColPosition;
@@ -34,158 +36,12 @@ public class GameManagerScript : MonoBehaviour
     private int score;
     public int lifes;
 
-    private string[] levels = {
-            "bbbbbbbbbbbbbbbbbb" +
-            "bbbbbbbbbbbbbbbbbb" +
-            "bbbbbbbbbbbbbbbbbb" +
-            "bbbbbbbbbbbbbbbbbb" +
-            "bbbbbbbbbbbbbbbbbb" +
-            "bbbbbbbbbbbbbbbbbb" +
-            "bbbbbbbbbbbbbbbbbb" +
-            "bbbbbbbbbbbbbbbbbb" +
-            "bbbbbbbbbbbbbbbbbb" +
-            "bbbbbbbbbbbbbbbbbb" +
-            "bbbbbbbbbbbbbbbbbb" +
-            "bbbbbbbbbbbbbbbbbb" +
-            "bbbbbbbbbbbbbbbbbb" +
-            "bbbbbbbbbbbbbbbbbb" ,
-            
-            //level 1
-            "                  " +
-            "                  " +
-            "                  " +
-            "                  " +
-            "                  " +
-            "                  " +
-            "                  " +
-            "    s       b     " +
-            "                  " +
-            "                  " +
-            "                  " +
-            "                  " +
-            "                  " +
-            "                  " ,
-
-            //level 1
-            "                  " +
-            "                  " +
-            "                  " +
-            "  bbbbbbbbbbbbbb  " +
-            "  bbbbbbbbbbbbbb  " +
-            "  bbbbbbbbbbbbbb  " +
-            "  bbbbbbbbbbbbbb  " +
-            "                  " +
-            "                  " +
-            "                  " +
-            "                  " +
-            "                  " +
-            "                  " +
-            "                  " ,
-
-            //level 2
-            "                  " +
-            "                  " +
-            "                  " +
-            "        bb        " +
-            "      bbbbbb      " +
-            "    bddddddddb    " +
-            "  dddddddddddddd  " +
-            "                  " +
-            "                  " +
-            "                  " +
-            "                  " +
-            "                  " +
-            "                  " +
-            "                  " ,
-
-            //level 3
-            "                  " +
-            "                  " +
-            "bbbb              " +
-            "bbbbbb            " +
-            "bbbbbbbb          " +
-            "bbbbbbbbbb        " +
-            "bbbbbbbbbbbb      " +
-            "dddddddddddddd    " +
-            "ssssssssssssssss  " +
-            "                  " +
-            "                  " +
-            "                  " +
-            "                  " +
-            "                  " ,
-
-
-            //level 4
-            "                  " +
-            "                  " +
-            "  dddddddddddddd  " +
-            "                  " +
-            "  bbbbbbbbbbbbbb  " +
-            "                  " +
-            "  bbbbbbbbbbbbbb  " +
-            "                  " +
-            "  dddddddddddddd  " +
-            "                  " +
-            "                  " +
-            "                  " +
-            "                  " +
-            "                  " ,
-
-            //level 5
-            "                  " +
-            "                  " +
-            "  bb dd ss dd bb  " +
-            "  bb dd ss dd bb  " +
-            "  bb dd ss dd bb  " +
-            "  bb dd ss dd bb  " +
-            "  bb dd ss dd bb  " +
-            "  bb dd ss dd bb  " +
-            "  bb dd ss dd bb  " +
-            "                  " +
-            "                  " +
-            "                  " +
-            "                  " +
-            "                  " ,
-
-            //level 6
-            "                  " +
-            "                  " +
-            " dddddddddddddd s " +
-            " bbbbbbbbbbbbbb s " +
-            " bbbbbbbbbbbbbb s " +
-            " bbbbbbbbbbbbbb s " +
-            " bbbbbbbbbbbbbb s " +
-            " bbbbbbbbbbbbbb s " +
-            "                s " +
-            "sssssssssssssssss " +
-            "                  " +
-            "                  " +
-            "                  " +
-            "                  " ,
-
-
-            "                  " +
-            "                  " +
-            "  dddddddddddddd  " +
-            "  bbbbbbbbbbbbbb  " +
-            "  bbbbbbbbbbbbbb  " +
-            "  ssbbssbbssbbss  " +
-            "  ssbbssbbssbbss  " +
-            "  bbbbbbbbbbbbbb  " +
-            "  bbbbbbbbbbbbbb  " +
-            "  dddddddddddddd  " +
-            "                  " +
-            "                  " +
-            "                  " +
-            "                  " ,
-
-
-
-    };
-
+    private string[] levels;
+  
     void Awake()
     {
         instance = this;
+        levels = Levels.levels;
     }
 
     // Use this for initialization
@@ -217,19 +73,70 @@ public class GameManagerScript : MonoBehaviour
         float x = brickCanvasMinColPosition;
         float y = brickCanvasMinRowPosition;
         int index = 0;
-        foreach (char brick in levels[level])
+        foreach (char brickType in levels[level])
         {
-            if (brick == 'b') // 1 hit
+            if (brickType == 'w') // 1 hit white
             {
                 brickOnLevel++;
-                Instantiate(brickTypes[0], new Vector2(x, y), Quaternion.identity);
+                GameObject brickInstance = (GameObject) Instantiate(brickTypes[0], new Vector2(x, y), Quaternion.identity);
+                brickInstance.GetComponent<Renderer>().material.color = brickColorEditor[0];
             }
-            if (brick == 'd') // 2 hit
+
+            if (brickType == 'o') // 1 hit orange
+            {
+                brickOnLevel++;
+                GameObject brickInstance = (GameObject)Instantiate(brickTypes[0], new Vector2(x, y), Quaternion.identity);
+                brickInstance.GetComponent<Renderer>().material.color = brickColorEditor[1];
+            }
+
+            if (brickType == 'c') // 1 hit cyan
+            {
+                brickOnLevel++;
+                GameObject brickInstance = (GameObject)Instantiate(brickTypes[0], new Vector2(x, y), Quaternion.identity);
+                brickInstance.GetComponent<Renderer>().material.color = brickColorEditor[2];
+            }
+
+            if (brickType == 'g') // 1 hit green
+            {
+                brickOnLevel++;
+                GameObject brickInstance = (GameObject)Instantiate(brickTypes[0], new Vector2(x, y), Quaternion.identity);
+                brickInstance.GetComponent<Renderer>().material.color = brickColorEditor[3];
+            }
+
+            if (brickType == 'r') // 1 hit red
+            {
+                brickOnLevel++;
+                GameObject brickInstance = (GameObject)Instantiate(brickTypes[0], new Vector2(x, y), Quaternion.identity);
+                brickInstance.GetComponent<Renderer>().material.color = brickColorEditor[4];
+            }
+
+            if (brickType == 'b') // 1 hit blue
+            {
+                brickOnLevel++;
+                GameObject brickInstance = (GameObject)Instantiate(brickTypes[0], new Vector2(x, y), Quaternion.identity);
+                brickInstance.GetComponent<Renderer>().material.color = brickColorEditor[5];
+            }
+
+            if (brickType == 'p') // 1 hit за purple
+            {
+                brickOnLevel++;
+                GameObject brickInstance = (GameObject)Instantiate(brickTypes[0], new Vector2(x, y), Quaternion.identity);
+                brickInstance.GetComponent<Renderer>().material.color = brickColorEditor[6];
+            }
+
+            if (brickType == 'y') // 1 hit green
+            {
+                brickOnLevel++;
+                GameObject brickInstance = (GameObject)Instantiate(brickTypes[0], new Vector2(x, y), Quaternion.identity);
+                brickInstance.GetComponent<Renderer>().material.color = brickColorEditor[7];
+            }
+
+            if (brickType == 'd') // 2 hit
             {
                 brickOnLevel++;
                 Instantiate(brickTypes[1], new Vector2(x, y), Quaternion.identity);
             }
-            if (brick == 's') // solid
+            if (brickType == 'u') // solid
             {
                 Instantiate(brickTypes[2], new Vector2(x, y), Quaternion.identity);
             }
