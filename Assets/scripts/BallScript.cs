@@ -87,8 +87,8 @@ public class BallScript : MonoBehaviour
         //}
 
         speedX = Mathf.Sign(speedX) * Mathf.Clamp(Mathf.Abs(speedX), ballInitialVelocityX * 0.5f, ballInitialVelocityX);
-        speedY = Mathf.Sign(speedY) * Mathf.Clamp(Mathf.Abs(speedY), ballInitialVelocityY * 0.5f, ballInitialVelocityY);
-
+        //speedY = Mathf.Sign(speedY) * Mathf.Clamp(Mathf.Abs(speedY), ballInitialVelocityY * 0.5f, ballInitialVelocityY);
+        speedY = Mathf.Sign(speedY) * ballInitialVelocityY;
 
         rb.velocity = Vector3.zero;
         rb.velocity = new Vector3(speedX, speedY, 0);

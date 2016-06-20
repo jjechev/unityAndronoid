@@ -73,6 +73,8 @@ public class GameManagerScript : MonoBehaviour
         float x = brickCanvasMinColPosition;
         float y = brickCanvasMinRowPosition;
         int index = 0;
+
+        brickOnLevel = 0;
         foreach (char brickType in levels[level])
         {
             if (brickType == 'w') // 1 hit white
