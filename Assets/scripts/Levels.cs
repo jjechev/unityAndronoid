@@ -62,23 +62,8 @@ public class Levels : MonoBehaviour {
             "                  " +
             "                  " ,
 
-            //level 2
-            "                  " +
-            "                  " +
-            "                  " +
-            "        ww        " +
-            "      wwwwww      " +
-            "    wddddddddw    " +
-            "  dddddddddddddd  " +
-            "                  " +
-            "                  " +
-            "                  " +
-            "                  " +
-            "                  " +
-            "                  " +
-            "                  " ,
 
-            //level 3
+            //level 2
             "                  " +
             "wocg              " +
             "wocgrb            " +
@@ -94,35 +79,50 @@ public class Levels : MonoBehaviour {
             "                  " +
             "                  " ,
 
+			//level 3
+			"                  " +
+			"                  " +
+			" wocgr pywo grbpy " +
+			" ocgrb ywoc rbpyw " +
+			" cgrbp wocg bpywo " +
+			" grbpy ocgr pywoc " +
+			" rbpyw cgrb ywocg " +
+			" bpywo grbp wocgr " +
+			" pywoc rbpy ocgrb " +
+			"                  " +
+			"                  " +
+			"                  " +
+			"                  " +
+			"                  " ,
 
             //level 4
             "                  " +
-            "                  " +
+            "    yy      yy    " +
+            "      y    y      " +
+            "    dddddddddd    " +
+            "   dddddddddddd   " +
+            "  ddddrddddrdddd  " +
             "  dddddddddddddd  " +
+            "  d dddddddddd d  " +
+            "  d d        d d  " +
+            "     ddd  ddd     " +
             "                  " +
-            "  wwwwwwwwwwwwww  " +
-            "                  " +
-            "  wwwwwwwwwwwwww  " +
-            "                  " +
-            "  dddddddddddddd  " +
-            "                  " +
-            "                  " +
-            "                  " +
+			"                  " +
             "                  " +
             "                  " ,
 
             //level 5
             "                  " +
             "                  " +
-            "  ww dd uu dd ww  " +
-            "  ww dd uu dd ww  " +
-            "  ww dd uu dd ww  " +
-            "  ww dd uu dd ww  " +
-            "  ww dd uu dd ww  " +
-            "  ww dd uu dd ww  " +
-            "  ww dd uu dd ww  " +
-            "                  " +
-            "                  " +
+            "b r g c yy c g r b" +
+            "b r g c yy c g r b" +
+			"b ruuuuuuuuuuuur b" +
+            "b r g c yy c g r b" +
+            "b r g c yy c g r b" +
+            "b r g c yy c g r b" +
+            "b r g c yy c g r b" +
+            "u u u u uu u u u u" +
+            "b r g c yy c g r b" +
             "                  " +
             "                  " +
             "                  " ,
@@ -142,6 +142,71 @@ public class Levels : MonoBehaviour {
             "                  " +
             "                  " +
             "                  " ,
+
+			//level 7
+			"                  " +
+			"                  " +
+			"    u  u  u  u    " +
+			" uu            uu " +
+			" u  u  uwwu  u  u " +
+			"     uu bb uu     " +
+			"        yy        " +
+			" u  u  uddu  u  u " +
+			"        yy        " +
+			"     uu bb uu     " +
+			" u  u  uwwu  u  u " +
+			" uu            uu " +
+			"    u  u  u  u    " +
+			"                  " ,
+
+			//level 8
+			"                  " +
+			" uccu        uccu " +
+			" uccu        uccu " +
+			" uuuu        uuuu " +
+			"                  " +
+			"     pddddddy     " +
+			"     puuuuuuy     " +
+			"     pccccccy     " +
+			"     pggggggy     " +
+			"     prrrrrry     " +
+			"     pbbbbbby     " +
+			"                  " +
+			"                  " +
+			"                  " ,
+
+			//level 9
+			"      yyyyyy      " +
+			"     yyyyyyyy     " +
+			"    yyyyyyyyyy    " +
+			"   yyyyyyyyyyyy   " +
+			"   yyrryyyyrryy   " +
+			"   yyrryyyyrryy   " +
+			"   yyyyyyyyyyyy   " +
+			"   yyyyyyyyyyyy   " +
+			"   yyryyyyyyryy   " +
+			"    yyryyyyryy    " +
+			"     yyrrrryy     " +
+			"      yyyyyy      " +
+			"                  " +
+			"                  " ,
+
+			//level 10
+			"                  " +
+			"  dddddddddddddd  " +
+			"  d            d  " +
+			"  d dddddddddd d  " +
+			"  d d        d d  " +
+			"  d d  dddd  d d  " +
+			"  d d        d d  " +
+			"  d dddddddddd d  " +
+			"  d            d  " +
+			"  dddddddddddddd  " +
+			"                  " +
+			"                  " +
+			"                  " +
+			"                  " ,
+
 
 
             "                  " +
