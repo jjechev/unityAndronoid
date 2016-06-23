@@ -30,21 +30,21 @@ public class Levels : MonoBehaviour {
             "wwwwwwwwwwwwwwwwww" +
             "wwwwwwwwwwwwwwwwww" ,
             
-            //level 1
-            "                  " +
-            "                  " +
-            "                  " +
-            "                  " +
-            "                  " +
-            "                  " +
-            "                  " +
-            "    u       w     " +
-            "                  " +
-            "                  " +
-            "                  " +
-            "                  " +
-            "                  " +
-            "                  " ,
+            ////level 1
+            //"                  " +
+            //"                  " +
+            //"                  " +
+            //"                  " +
+            //"                  " +
+            //"                  " +
+            //"                  " +
+            //"    u       w     " +
+            //"                  " +
+            //"                  " +
+            //"                  " +
+            //"                  " +
+            //"                  " +
+            //"                  " ,
 
             //level 1
             "                  " +
@@ -208,20 +208,101 @@ public class Levels : MonoBehaviour {
 			"                  " ,
 
 
+            //level 11
+			"                  " +
+            "uuuuuuuuuuuuuuuuuu" +
+            "  u   u       u  w" +
+            "      u       u   " +
+            "      u   u   u   " +
+            "  uy  ug  u   u   " +
+            "  u   u   u  bu   " +
+            "  u  pu   u   u   " +
+            "  u   u  ru   u   " +
+            "  uc      u       " +
+            "  u       u       " +
+            "  uuuuuuuuuuuuuuuu" +
+            "u                 " +
+            "                  " ,
 
+            //level 12
+            "         d        " +
+            "        ddd       " +
+            "        d d       " +
+            "        u         " +
+            "        u         " +
+            "   u  u u u  u    " +
+            "   gggwwwwwbbb    " +
+            "   gggwwwwwbbb    " +
+            "   gggwwwwwbbb    " +
+            "    ggwwwwwbb     " +
+            "    gggwwwbbb     " +
+            "     gggdbbb      " +
+            "        d         " +
+            "                  " ,
+
+            //level 13
+            "                  " +
+            "                  " +
+            "                  " +
+            "    bb     rrrr   " +
+            "   bbb    rr  rr  " +
+            "   bbb        rr  " +
+            "    bb      rrr   " +
+            "    bb      rrr   " +
+            "    bb        rr  " +
+            "    bb    rr  rr  " +
+            "  bbbbbb   rrrr   " +
+            "                  " +
+            "                  " +
+            "                  " ,
+
+            //level 14
+            "                  " +
+            "bbbbbbbbbbbbbbbbbb" +
+            "u                u" +
+            "bbbbbbbbbbbbbbbbbb" +
+            "                  " +
+            "dddddddddddddddddd" +
+            "u                u" +
+            "dddddddddddddddddd" +
+            "                  " +
+            "rrrrrrrrrrrrrrrrrr" +
+            "u                u" +
+            "rrrrrrrrrrrrrrrrrr" +
+            "                  " +
+            "                  " ,
+
+            //level 15
             "                  " +
             "                  " +
             "  dddddddddddddd  " +
-            "  wwwwwwwwwwwwww  " +
-            "  wwwwwwwwwwwwww  " +
-            "  uuwwuuwwuuwwuu  " +
-            "  uuwwuuwwuuwwuu  " +
-            "  wwwwwwwwwwwwww  " +
-            "  wwwwwwwwwwwwww  " +
+            "  rrwwggyyggwwrr  " +
+            "  rrwwggyyggwwrr  " +
+            "  uudduudduudduu  " +
+            "  uudduudduudduu  " +
+            "  rrwwggyyggwwrr  " +
+            "  rrwwggyyggwwrr  " +
             "  dddddddddddddd  " +
             "                  " +
             "                  " +
             "                  " +
+            "                  " ,
+
+
+            //level 16
+            "                  " +
+            "wwwwwwwwwwwwwwwwww" +
+            "gggggggggggggggggg" +
+            "rrrrrrrrrrrrrrrrrr" +
+            "uuuuuuuddddduuuuuu" +
+            "upppppu     ubbbbu" +
+            "upppppu     ubbbbu" +
+            "u                u" +
+            "u                u" +
+            "u                u" +
+            "u     ugggggu    u" +
+            "u     ugggggu    u" +
+            "uddddduuuuuuuddddu" +
             "                  " ,
     };
 }

@@ -12,7 +12,8 @@ public class GameManagerScript : MonoBehaviour
     public Text scoreText;
     public Text lifesText;
 
-    public static int level = 4;
+	public int levelEditor;
+    public static int level = 5;
 
     public static Color brick1Color;
     public static Color brick2Color;
@@ -42,6 +43,7 @@ public class GameManagerScript : MonoBehaviour
     {
         instance = this;
         levels = Levels.levels;
+		level = levelEditor;
     }
 
     // Use this for initialization
