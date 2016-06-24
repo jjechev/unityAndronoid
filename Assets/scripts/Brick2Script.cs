@@ -3,12 +3,14 @@ using System.Collections;
 
 public class Brick2Script : MonoBehaviour
 {
-
+    Animation anim;
+    public ParticleSystem BrickParticle;
     private int hit = 2;
 
     // Use this for initialization
     void Start()
     {
+        //anim = GetComponent<Animation>();
         GetComponent<Renderer>().material.color = GameManagerScript.brick2Color;
     }
 
@@ -20,7 +22,10 @@ public class Brick2Script : MonoBehaviour
 
     void OnCollisionEnter(Collision other)
     {
-        checkAndDestroy();
+        if (other.collider.name == "ball")
+        {
+            checkAndDestroy();
+        }
     }
 
     void checkAndDestroy()
@@ -29,12 +34,18 @@ public class Brick2Script : MonoBehaviour
         hit--;
         if (hit == 0)
         {
+            Color color = GetComponent<Renderer>().material.color;
+            ParticleSystem Particlez = (ParticleSystem)Instantiate(BrickParticle, transform.position, Quaternion.identity);
+            Particlez.startColor = color;
+            Debug.Log(Particlez.startColor);
+
             this.gameObject.SetActive(false);
             GameManagerScript.decreaseBricks();
             GameManagerScript.instance.CheckAndGoNextLevel();
         }
         else
         {
+            //anim.Play();
             GetComponent<Renderer>().material.color = GameManagerScript.brick1Color;
         }
     }

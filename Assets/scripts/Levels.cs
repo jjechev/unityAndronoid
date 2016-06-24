@@ -302,7 +302,7 @@ public class Levels : MonoBehaviour {
             "u                u" +
             "u     ugggggu    u" +
             "u     ugggggu    u" +
-            "uddddduuuuuuuddddu" +
+            "uddwdduuuuuuuddddu" +
             "                  " ,
     };
 }
