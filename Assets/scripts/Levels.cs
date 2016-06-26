@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Levels : MonoBehaviour {
+public class Levels : MonoBehaviour
+{
 
     // w = white
     // o = orange
@@ -81,19 +82,19 @@ public class Levels : MonoBehaviour {
 
 			//level 3
 			"                  " +
-			"                  " +
-			" wocgr pywo grbpy " +
-			" ocgrb ywoc rbpyw " +
-			" cgrbp wocg bpywo " +
-			" grbpy ocgr pywoc " +
-			" rbpyw cgrb ywocg " +
-			" bpywo grbp wocgr " +
-			" pywoc rbpy ocgrb " +
-			"                  " +
-			"                  " +
-			"                  " +
-			"                  " +
-			"                  " ,
+            "                  " +
+            " wocgr pywo grbpy " +
+            " ocgrb ywoc rbpyw " +
+            " cgrbp wocg bpywo " +
+            " grbpy ocgr pywoc " +
+            " rbpyw cgrb ywocg " +
+            " bpywo grbp wocgr " +
+            " pywoc rbpy ocgrb " +
+            "                  " +
+            "                  " +
+            "                  " +
+            "                  " +
+            "                  " ,
 
             //level 4
             "                  " +
@@ -107,7 +108,7 @@ public class Levels : MonoBehaviour {
             "  d d        d d  " +
             "     ddd  ddd     " +
             "                  " +
-			"                  " +
+            "                  " +
             "                  " +
             "                  " ,
 
@@ -116,7 +117,7 @@ public class Levels : MonoBehaviour {
             "                  " +
             "b r g c yy c g r b" +
             "b r g c yy c g r b" +
-			"b ruuuuuuuuuuuur b" +
+            "b ruuuuuuuuuuuur b" +
             "b r g c yy c g r b" +
             "b r g c yy c g r b" +
             "b r g c yy c g r b" +
@@ -145,67 +146,67 @@ public class Levels : MonoBehaviour {
 
 			//level 7
 			"                  " +
-			"                  " +
-			"    u  u  u  u    " +
-			" uu            uu " +
-			" u  u  uwwu  u  u " +
-			"     uu bb uu     " +
-			"        yy        " +
-			" u  u  uddu  u  u " +
-			"        yy        " +
-			"     uu bb uu     " +
-			" u  u  uwwu  u  u " +
-			" uu            uu " +
-			"    u  u  u  u    " +
-			"                  " ,
+            "                  " +
+            "    u  u  u  u    " +
+            " uu            uu " +
+            " u  u  uwwu  u  u " +
+            "     uu bb uu     " +
+            "        yy        " +
+            " u  u  uddu  u  u " +
+            "        yy        " +
+            "     uu bb uu     " +
+            " u  u  uwwu  u  u " +
+            " uu            uu " +
+            "    u  u  u  u    " +
+            "                  " ,
 
 			//level 8
 			"                  " +
-			" uccu        uccu " +
-			" uccu        uccu " +
-			" uuuu        uuuu " +
-			"                  " +
-			"     pddddddy     " +
-			"     puuuuuuy     " +
-			"     pccccccy     " +
-			"     pggggggy     " +
-			"     prrrrrry     " +
-			"     pbbbbbby     " +
-			"                  " +
-			"                  " +
-			"                  " ,
+            " uccu        uccu " +
+            " uccu        uccu " +
+            " uuuu        uuuu " +
+            "                  " +
+            "     pddddddy     " +
+            "     puuuuuuy     " +
+            "     pccccccy     " +
+            "     pggggggy     " +
+            "     prrrrrry     " +
+            "     pbbbbbby     " +
+            "                  " +
+            "                  " +
+            "                  " ,
 
 			//level 9
 			"      yyyyyy      " +
-			"     yyyyyyyy     " +
-			"    yyyyyyyyyy    " +
-			"   yyyyyyyyyyyy   " +
-			"   yyrryyyyrryy   " +
-			"   yyrryyyyrryy   " +
-			"   yyyyyyyyyyyy   " +
-			"   yyyyyyyyyyyy   " +
-			"   yyryyyyyyryy   " +
-			"    yyryyyyryy    " +
-			"     yyrrrryy     " +
-			"      yyyyyy      " +
-			"                  " +
-			"                  " ,
+            "     yyyyyyyy     " +
+            "    yyyyyyyyyy    " +
+            "   yyyyyyyyyyyy   " +
+            "   yyrryyyyrryy   " +
+            "   yyrryyyyrryy   " +
+            "   yyyyyyyyyyyy   " +
+            "   yyyyyyyyyyyy   " +
+            "   yyryyyyyyryy   " +
+            "    yyryyyyryy    " +
+            "     yyrrrryy     " +
+            "      yyyyyy      " +
+            "                  " +
+            "                  " ,
 
 			//level 10
 			"                  " +
-			"  dddddddddddddd  " +
-			"  d            d  " +
-			"  d dddddddddd d  " +
-			"  d d        d d  " +
-			"  d d  dddd  d d  " +
-			"  d d        d d  " +
-			"  d dddddddddd d  " +
-			"  d            d  " +
-			"  dddddddddddddd  " +
-			"                  " +
-			"                  " +
-			"                  " +
-			"                  " ,
+            "  dddddddddddddd  " +
+            "  d            d  " +
+            "  d dddddddddd d  " +
+            "  d d        d d  " +
+            "  d d  dddd  d d  " +
+            "  d d        d d  " +
+            "  d dddddddddd d  " +
+            "  d            d  " +
+            "  dddddddddddddd  " +
+            "                  " +
+            "                  " +
+            "                  " +
+            "                  " ,
 
 
             //level 11
@@ -304,5 +305,70 @@ public class Levels : MonoBehaviour {
             "u     ugggggu    u" +
             "uddwdduuuuuuuddddu" +
             "                  " ,
+
+            //level 17
+            "                  " +
+            "                  " +
+            "                  " +
+            "  wwwwww  wwwwww  " +
+            "  wwwwww  wwwwww  " +
+            "  gggggg  gggggg  " +
+            "  gggggg  gggggg  " +
+            "  rrrrrr  rrrrrr  " +
+            "  rrrrrr  rrrrrr  " +
+            "                  " +
+            "                  " +
+            "                  " +
+            "                  " +
+            "                  " ,
+
+            //level 18
+            "                  " +
+            "dddddddddddddddddd" +
+            "ccccrcccuuyyybyyyy" +
+            "cccrrcccuuyyybbyyy" +
+            "ccrrrrrruubbbbbbyy" +
+            "crrrrrrruubbbbbbby" +
+            "ccrrrrrruubbbbbbyy" +
+            "cccrrcccuuyyybbyyy" +
+            "ccccrcccuuyyybyyyy" +
+            "dddddddddddddddddd" +
+            "                  " +
+            "                  " +
+            "                  " +
+            "                  " ,
+
+            //level 19
+            "                  " +
+            "                  " +
+            " uyyyyyu  upppppu " +
+            "  uyyyu    upppu  " +
+            "   uyu      upu   " +
+            "    u        u    " +
+            "                  " +
+            "                  " +
+            "    u        u    " +
+            "    uccccccccu    " +
+            "    uccccccccu    " +
+            "    uuuuuuuuuu    " +
+            "                  " +
+            "                  " ,
+
+            //level 20
+            "                  " +
+            " yy    ww   bb    " +
+            " uu    uu   uu    " +
+            "                  " +
+            "                  " +
+            "    cc   dd   pp  " +
+            "    uu   uu   uu  " +
+            "                  " +
+            "                  " +
+            " oo    gg   rr    " +
+            " uu    uu   uu    " +
+            "                  " +
+            "                  " +
+            "                  " ,
+
     };
 }

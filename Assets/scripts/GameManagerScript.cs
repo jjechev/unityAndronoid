@@ -168,6 +168,12 @@ public class GameManagerScript : MonoBehaviour
         if (brickOnLevel < 1)
         {
             level++;
+
+            if (levels.Length == level)
+            {
+                level = 1;
+            }
+
             BallScript.instance.resetBallPosition();
             instance.CreateLevel(level);
         }
