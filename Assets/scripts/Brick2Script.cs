@@ -7,6 +7,8 @@ public class Brick2Script : MonoBehaviour
     public ParticleSystem BrickParticle;
     private int hit = 2;
 
+    public GameObject Barel;
+
     // Use this for initialization
     void Start()
     {

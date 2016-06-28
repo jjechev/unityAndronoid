@@ -59,7 +59,7 @@ public class BallScript : MonoBehaviour
         rb.velocity = Vector3.zero;
         waitingTimeBeforeStartMoving = 200;
         ballInPlay = false;
-        transform.parent = GameObject.FindGameObjectWithTag("player").transform;
+        //transform.parent = GameObject.FindGameObjectWithTag("player").transform;
     }
 
     public void OnCollisionEnter(Collision col)

@@ -5,6 +5,8 @@ public class Brick1Script : MonoBehaviour
 {
     public ParticleSystem BrickParticle;
 
+    public GameObject Barel;
+
     // Use this for initialization
     void Start()
     {
@@ -20,6 +22,7 @@ public class Brick1Script : MonoBehaviour
     void OnCollisionEnter(Collision other)
     {
         checkAndDestroy();
+        CreateBarel();
     }
 
     void checkAndDestroy()
@@ -37,4 +40,9 @@ public class Brick1Script : MonoBehaviour
         Destroy(gameObject);
     }
 
+
+    void CreateBarel()
+    {
+        Instantiate(Barel, new Vector3(transform.position.x, transform.position.y - 0.5f, 0f), Quaternion.identity);
+    }
 }
