@@ -32,7 +32,7 @@ public class Brick2Script : MonoBehaviour
 
     void checkAndDestroy()
     {
-        GameManagerScript.instance.IncScore(1);
+        GameManagerScript.instance.IncScore(100);
         hit--;
         if (hit == 0)
         {

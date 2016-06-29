@@ -188,14 +188,9 @@ public class GameManagerScript : MonoBehaviour
         }
     }
 
-    public void IncScore(int type)
+    public void IncScore(int addScore)
     {
-        switch (type)
-        {
-            default:
-                score += 100;
-                break;
-        }
+        score += addScore;
     }
 
     private void PrintOnScreen()

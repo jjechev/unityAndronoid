@@ -35,7 +35,7 @@ public class Brick1Script : MonoBehaviour
 
 
         GameManagerScript.decreaseBricks();
-        GameManagerScript.instance.IncScore(1);
+        GameManagerScript.instance.IncScore(100);
         GameManagerScript.instance.CheckAndGoNextLevel();
         Destroy(gameObject);
     }
