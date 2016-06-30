@@ -68,19 +68,19 @@ public class BarelScript : MonoBehaviour
         }
         if (this.letter == 1)
         {// letter C stick ball
-
+            BallScript.instance.SetStickBall();
         }
         if (this.letter == 2)
         {// letter E expand
-
+            Player.instance.Expand();
         }
         if (this.letter == 3)
         {// letter L life
-
+            GameManagerScript.instance.IncLife(1);
         }
         if (this.letter == 4)
         {// letter S slow
-
+            BallScript.instance.DecSpeed();
         }
         if (this.letter == 5)
         {// letter T 3balls

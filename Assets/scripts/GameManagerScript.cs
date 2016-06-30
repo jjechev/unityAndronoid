@@ -193,6 +193,11 @@ public class GameManagerScript : MonoBehaviour
         score += addScore;
     }
 
+    public void IncLife(int addLifes)
+    {
+        lifes += addLifes;
+    }
+
     private void PrintOnScreen()
     {
         PrintLifes();

@@ -5,20 +5,34 @@ public class BallScript : MonoBehaviour
 {
     private AudioSource sound;
 
+    // move
     public float speedX;
     public float speedY;
     public float ballInitialVelocityX;
     public float ballInitialVelocityY;
-    
+
+    // temp var for stick ball
+    private float tempBallVelocityX = 0;
+    private float tempBallVelocityY = 0;
+
+    //rb
     private Rigidbody rb;
 
+    //start position
     float ballStartPositionX;
     float ballStartPositionY;
     private bool ballInPlay;
     
+    //insance
     public static BallScript instance;
 
-    int waitingTimeBeforeStartMoving = 200;
+    //stick ball
+    bool stickBall = false;
+    int stickBallCounter = 0;
+
+    //inc & dec speed
+    float ballIncSpeedOnCollision = 1.01f;
+    float ballDecSpeed = 0.2f;
 
     void Awake()
     {
@@ -39,6 +53,7 @@ public class BallScript : MonoBehaviour
     void Update()
     {
         moveBall();
+        StickBallCounter();
     }
 
     void moveBall()
@@ -48,24 +63,53 @@ public class BallScript : MonoBehaviour
             transform.parent = null;
             ballInPlay = true;
             rb.isKinematic = false;
-          //  rb.AddForce(new Vector3(ballInitialVelocityX, ballInitialVelocityY, 0));
-            rb.velocity = new Vector3(ballInitialVelocityX, ballInitialVelocityY, 0);
+            //  rb.AddForce(new Vector3(ballInitialVelocityX, ballInitialVelocityY, 0));
+
+            if (tempBallVelocityX == 0 && tempBallVelocityY == 0)
+            {
+                rb.velocity = new Vector3(ballInitialVelocityX, ballInitialVelocityY, 0);
+            }
+            else
+            {   // stick ball
+                rb.velocity = new Vector3(tempBallVelocityX, tempBallVelocityY, 0);
+            }
         }
     }
 
     public void resetBallPosition()
     {
+        transform.parent = GameObject.FindGameObjectWithTag("player").transform;
         transform.position = new Vector3(GameObject.FindGameObjectWithTag("player").transform.position.x + 0.5f, ballStartPositionY, 0);
         rb.velocity = Vector3.zero;
-        waitingTimeBeforeStartMoving = 200;
+        //waitingTimeBeforeStartMoving = 200;
         ballInPlay = false;
-        //transform.parent = GameObject.FindGameObjectWithTag("player").transform;
+        //reset stick ball
+        tempBallVelocityX = 0;
+        tempBallVelocityY = 0;
     }
 
     public void OnCollisionEnter(Collision col)
     {
        // Debug.Log(col.collider.name);
         ChangeDirection(col);
+    }
+
+    public void SetStickBall()
+    {
+        stickBall = true;
+        stickBallCounter = 30 * 60; //sec
+    }
+
+    void StickBallCounter()
+    {
+        if (stickBallCounter < 1) return;
+        stickBallCounter--;
+        if (stickBallCounter == 0) stickBall = false;
+    }
+
+    public void DecSpeed()
+    {
+        rb.velocity -= new Vector3(rb.velocity.x * ballDecSpeed, rb.velocity.x * ballDecSpeed, 0);
     }
 
     public void ChangeDirection(Collision col)
@@ -79,6 +123,7 @@ public class BallScript : MonoBehaviour
         {
             speedX = -((col.transform.position.x - this.transform.position.x) / col.transform.localScale.x / 5);
             speedX = ballInitialVelocityX * speedX * 10;
+
         }
 
         //if (Mathf.Abs(speedX) < Mathf.Abs(speedY) || Mathf.Abs(speedY) < 0.5f)
@@ -86,9 +131,9 @@ public class BallScript : MonoBehaviour
         //    speedX = Mathf.Sign(speedX) * Mathf.Abs(speedY);
         //}
 
-        speedX = Mathf.Sign(speedX) * Mathf.Clamp(Mathf.Abs(speedX), ballInitialVelocityX * 0.5f, ballInitialVelocityX);
-        //speedY = Mathf.Sign(speedY) * Mathf.Clamp(Mathf.Abs(speedY), ballInitialVelocityY * 0.5f, ballInitialVelocityY);
-        speedY = Mathf.Sign(speedY) * ballInitialVelocityY;
+        speedX = Mathf.Sign(speedX) * Mathf.Clamp(Mathf.Abs(speedX), ballInitialVelocityX /2, ballInitialVelocityX * 3) * ballIncSpeedOnCollision;
+        speedY = Mathf.Sign(speedY) * Mathf.Clamp(Mathf.Abs(speedY), ballInitialVelocityY /2, ballInitialVelocityY * 3) * ballIncSpeedOnCollision;
+        //speedY = Mathf.Sign(speedY) * ballInitialVelocityY;
 
         speedX += Random.Range(0.01f, 0.03f) - 0.02f;
 
@@ -101,6 +146,21 @@ public class BallScript : MonoBehaviour
             GameManagerScript.instance.LostLife();
         }
 
+
+        if (col.collider.tag == "player")
+        {
+            //stickball
+            if (stickBall && ballInPlay)
+            {
+                //sey currnet velocity
+                tempBallVelocityX = rb.velocity.x;
+                tempBallVelocityY = rb.velocity.y;
+
+                transform.parent = GameObject.FindGameObjectWithTag("player").transform;
+                rb.velocity = Vector3.zero;
+                ballInPlay = false;
+            }
+        }
 
         //if (col.collider.tag == "wallUp")
         //{

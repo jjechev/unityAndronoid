@@ -1,0 +1,6 @@
+e expand
+b bonus point
+s slow ball
+l life
+c stick ball
+t 3 balls
