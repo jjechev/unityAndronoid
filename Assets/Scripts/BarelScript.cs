@@ -72,6 +72,10 @@ public class BarelScript : MonoBehaviour
         }
         if (this.letter == 2)
         {// letter E expand
+            if (BallScript.instance.stickBall)
+            {
+                BallScript.instance.stickBall = false;
+            }
             Player.instance.Expand();
         }
         if (this.letter == 3)

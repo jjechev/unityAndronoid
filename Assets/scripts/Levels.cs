@@ -50,11 +50,11 @@ public class Levels : MonoBehaviour
             //level 1
             "                  " +
             "                  " +
-            "                  " +
-            "  wwwwwwwwwwwwww  " +
-            "  wwwwwwwwwwwwww  " +
-            "  wwwwwwwwwwwwww  " +
-            "  wwwwwwwwwwwwww  " +
+            "  rrrrrrrrrrrrrr  " +
+            "  yyyyyyyyyyyyyy  " +
+            "  bbbbbbbbbbbbbb  " +
+            "  pppppppppppppp  " +
+            "  gggggggggggggg  " +
             "                  " +
             "                  " +
             "                  " +

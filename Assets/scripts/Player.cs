@@ -4,10 +4,11 @@ using System.Collections;
 public class Player : MonoBehaviour
 {
 
-    private int expandPercent = 40;
-    private int expandCount = 0;
+    private float expandPercent = 1.4f;
+    private float expandTimer = -100;
     public float speed;
-
+    Transform child;
+    Transform childX;
 
     public static Player instance;
 
@@ -19,7 +20,8 @@ public class Player : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-
+        child = GameObject.FindGameObjectWithTag("player").GetComponent<Transform>();
+        childX = GameObject.FindGameObjectWithTag("player").GetComponent<Transform>();
     }
 
     // Update is called once per frame
@@ -35,7 +37,7 @@ public class Player : MonoBehaviour
         //this.transform.Translate(Mathf.Clamp(moveX, -9, 9) * speed, 0f, 0f);
 
         float xPos = transform.position.x + (Input.GetAxisRaw("Horizontal") * speed);
-        transform.position = new Vector3(Mathf.Clamp(xPos, -9f, 9f), -4.5f, 0f);
+        transform.position = new Vector3(Mathf.Clamp(xPos, -8.8f, 8.8f), -4.5f, 0f);
 
         if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved)
         {
@@ -49,30 +51,41 @@ public class Player : MonoBehaviour
     }
 
     public void Expand()
-    {
-        if (expandCount == 0)
+    {   
+        if (expandTimer < 0)
         {
-            transform.localScale += new Vector3((transform.localScale.x * expandPercent / 100), 0f, 0f);
+            child.transform.localScale = new Vector3((child.transform.localScale.x * expandPercent), child.transform.localScale.y, child.transform.localScale.z);
         }
-        expandCount = 30 * 60; // sec
+        expandTimer = 30;
     }
 
     void ExpandCounter()
     {
-        if (expandCount < 1) return;
-        expandCount--;
-        if (expandCount == 0) Constrict();
+        if (expandTimer < 0)
+        {
+            return;
+        }
+
+        expandTimer -= Time.deltaTime;
+
+        if (expandTimer < 0)
+        {
+            Constrict();
+            expandTimer = -333;
+        }
     }
 
     void Constrict()
     {
-        transform.localScale -= new Vector3((transform.localScale.x * expandPercent / 2 / 100), 0f, 0f);
+        child.transform.localScale = new Vector3((child.transform.localScale.x / expandPercent), child.transform.localScale.y, child.transform.localScale.z);
+        Debug.Log(childX.localScale.x);
     }
 
     void OnCollisionEnter(Collision other)
     {
         if (other.collider.tag == "ball")
         {
+
             //GameManagerScript.instance.CheckAndGoNextLevel();
         }
     }

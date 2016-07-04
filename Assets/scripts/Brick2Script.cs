@@ -36,6 +36,7 @@ public class Brick2Script : MonoBehaviour
         hit--;
         if (hit == 0)
         {
+
             Color color = GetComponent<Renderer>().material.color;
             ParticleSystem Particlez = (ParticleSystem)Instantiate(BrickParticle, transform.position, Quaternion.identity);
             Particlez.startColor = color;
@@ -44,11 +45,18 @@ public class Brick2Script : MonoBehaviour
             this.gameObject.SetActive(false);
             GameManagerScript.decreaseBricks();
             GameManagerScript.instance.CheckAndGoNextLevel();
+
+            CreateBarel();
         }
         else
         {
             //anim.Play();
             GetComponent<Renderer>().material.color = GameManagerScript.brick1Color;
         }
+    }
+
+    void CreateBarel()
+    {
+        Instantiate(Barel, new Vector3(transform.position.x, transform.position.y - 0.5f, 0f), Quaternion.identity);
     }
 }

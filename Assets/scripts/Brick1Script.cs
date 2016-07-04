@@ -28,7 +28,6 @@ public class Brick1Script : MonoBehaviour
     void checkAndDestroy()
     {
         Color color = GetComponent<Renderer>().material.color;
-        //Color color = Color.green;
         ParticleSystem Particlez =  (ParticleSystem)Instantiate(BrickParticle, transform.position, Quaternion.identity);
         Particlez.startColor = color;
         Debug.Log(Particlez.startColor);
@@ -43,6 +42,6 @@ public class Brick1Script : MonoBehaviour
 
     void CreateBarel()
     {
-        Instantiate(Barel, new Vector3(transform.position.x, transform.position.y - 0.5f, 0f), Quaternion.identity);
+        Instantiate(Barel, new Vector3(transform.position.x, transform.position.y - 0.5f, -0.2f), Quaternion.identity);
     }
 }

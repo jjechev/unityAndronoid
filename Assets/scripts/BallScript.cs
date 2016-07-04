@@ -22,22 +22,21 @@ public class BallScript : MonoBehaviour
     float ballStartPositionX;
     float ballStartPositionY;
     private bool ballInPlay;
-    
     //insance
     public static BallScript instance;
 
     //stick ball
-    bool stickBall = false;
+    public bool stickBall = false;
     int stickBallCounter = 0;
 
     //inc & dec speed
-    float ballIncSpeedOnCollision = 1.01f;
+    float ballIncSpeedOnCollision = 1.005f;
     float ballDecSpeed = 0.2f;
 
     void Awake()
     {
         instance = this;
-         rb = GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody>();
     }
 
     // Use this for initialization
@@ -56,9 +55,15 @@ public class BallScript : MonoBehaviour
         StickBallCounter();
     }
 
+
     void moveBall()
     {
-        if ( ballInPlay == false && Input.GetButtonDown("Fire1"))
+        if (rb.velocity.x != 0 && rb.velocity.y != 0 && ballInPlay == false)
+        {
+            transform.parent = null;
+        }
+
+        if (ballInPlay == false && Input.GetButtonDown("Fire1"))
         {
             transform.parent = null;
             ballInPlay = true;
@@ -78,8 +83,8 @@ public class BallScript : MonoBehaviour
 
     public void resetBallPosition()
     {
-        transform.parent = GameObject.FindGameObjectWithTag("player").transform;
-        transform.position = new Vector3(GameObject.FindGameObjectWithTag("player").transform.position.x + 0.5f, ballStartPositionY, 0);
+        transform.parent = GameObject.FindGameObjectWithTag("paddle").transform;
+        transform.position = new Vector3(GameObject.FindGameObjectWithTag("paddle").transform.position.x + 0.5f, ballStartPositionY, 0);
         rb.velocity = Vector3.zero;
         //waitingTimeBeforeStartMoving = 200;
         ballInPlay = false;
@@ -90,14 +95,13 @@ public class BallScript : MonoBehaviour
 
     public void OnCollisionEnter(Collision col)
     {
-       // Debug.Log(col.collider.name);
+        // Debug.Log(col.collider.name);
         ChangeDirection(col);
     }
 
     public void SetStickBall()
     {
-        stickBall = true;
-        stickBallCounter = 30 * 60; //sec
+            stickBall = true;
     }
 
     void StickBallCounter()
@@ -109,7 +113,20 @@ public class BallScript : MonoBehaviour
 
     public void DecSpeed()
     {
-        rb.velocity -= new Vector3(rb.velocity.x * ballDecSpeed, rb.velocity.x * ballDecSpeed, 0);
+        if (ballInPlay)
+        {
+            rb.velocity = new Vector3(
+                Mathf.Sign(rb.velocity.x) * Mathf.Clamp(Mathf.Abs(rb.velocity.x) * ballDecSpeed, ballInitialVelocityX * 0.8f, ballInitialVelocityX * 10),
+                Mathf.Sign(rb.velocity.y) * Mathf.Clamp(Mathf.Abs(rb.velocity.y) * ballDecSpeed, ballInitialVelocityY * 0.8f, ballInitialVelocityY * 10),
+                0
+            );
+        }
+        else
+        {
+            tempBallVelocityX = Mathf.Sign(tempBallVelocityX) * Mathf.Clamp(Mathf.Abs(tempBallVelocityX) * ballDecSpeed, ballInitialVelocityX, ballInitialVelocityX * 10);
+            tempBallVelocityY = Mathf.Sign(tempBallVelocityY) * Mathf.Clamp(Mathf.Abs(tempBallVelocityY) * ballDecSpeed, ballInitialVelocityY, ballInitialVelocityY * 10);
+
+        }
     }
 
     public void ChangeDirection(Collision col)
@@ -131,8 +148,8 @@ public class BallScript : MonoBehaviour
         //    speedX = Mathf.Sign(speedX) * Mathf.Abs(speedY);
         //}
 
-        speedX = Mathf.Sign(speedX) * Mathf.Clamp(Mathf.Abs(speedX), ballInitialVelocityX /2, ballInitialVelocityX * 3) * ballIncSpeedOnCollision;
-        speedY = Mathf.Sign(speedY) * Mathf.Clamp(Mathf.Abs(speedY), ballInitialVelocityY /2, ballInitialVelocityY * 3) * ballIncSpeedOnCollision;
+        speedX = Mathf.Sign(speedX) * Mathf.Clamp(Mathf.Abs(speedX), ballInitialVelocityX / 2, ballInitialVelocityX * 2) * ballIncSpeedOnCollision;
+        speedY = Mathf.Sign(speedY) * Mathf.Clamp(Mathf.Abs(speedY), ballInitialVelocityY / 2, ballInitialVelocityY * 2) * ballIncSpeedOnCollision;
         //speedY = Mathf.Sign(speedY) * ballInitialVelocityY;
 
         speedX += Random.Range(0.01f, 0.03f) - 0.02f;
@@ -149,62 +166,24 @@ public class BallScript : MonoBehaviour
 
         if (col.collider.tag == "player")
         {
-            //stickball
-            if (stickBall && ballInPlay)
+            GameObject paddle = GameObject.FindGameObjectWithTag("paddle");
+            if (transform.position.y > paddle.transform.position.y + 0.4f)
             {
-                //sey currnet velocity
-                tempBallVelocityX = rb.velocity.x;
-                tempBallVelocityY = rb.velocity.y;
 
-                transform.parent = GameObject.FindGameObjectWithTag("player").transform;
-                rb.velocity = Vector3.zero;
-                ballInPlay = false;
+                //stickbal
+                if (stickBall && ballInPlay)
+                {
+                    //sey currnet velocity
+                    tempBallVelocityX = rb.velocity.x;
+                    tempBallVelocityY = rb.velocity.y;
+
+                    transform.parent = GameObject.FindGameObjectWithTag("paddle").transform;
+                    rb.velocity = Vector3.zero;
+                    ballInPlay = false;
+                }
             }
         }
 
-        //if (col.collider.tag == "wallUp")
-        //{
-        //    speedY = -speedY;
-        //}
-
-        //if (col.collider.tag == "wallDown")
-        //{
-        //    speedY = -speedY;
-        //    GameManagerScript.instance.LostLife();
-        //}
-
-        //if (col.collider.tag == "wallLeft" || col.collider.tag == "wallRight")
-        //{
-        //    speedX = -speedX;
-        //}
-
-        //if (col.collider.tag == "brick")
-        //{
-        //    float brickMaxHeight = col.transform.localScale.y;
-        //    float brickMaxWidth = col.transform.localScale.x;
-
-        //    float absoluteBallX = this.transform.position.x;
-        //    float absoluteBallY = this.transform.position.y;
-
-        //    float absoluteBrickX = col.transform.position.x;
-        //    float absoluteBrickY = col.transform.position.y;
-
-        //    if (
-        //            absoluteBrickX + brickMaxWidth / 2 < absoluteBallX ||
-        //            absoluteBrickX - brickMaxWidth / 2 > absoluteBallX
-        //        )
-        //    {
-        //        speedX = -speedX;
-        //    }
-
-        //    if (
-        //            absoluteBrickY + brickMaxHeight / 2 < absoluteBallY ||
-        //            absoluteBrickY - brickMaxHeight / 2 > absoluteBallY
-        //        )
-        //    {
-        //        speedY = -speedY;
-        //    }
-        //}
     }
 
 }
