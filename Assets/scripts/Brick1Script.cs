@@ -21,8 +21,11 @@ public class Brick1Script : MonoBehaviour
 
     void OnCollisionEnter(Collision other)
     {
-        checkAndDestroy();
-        CreateBarel();
+        if (other.collider.tag == "ball")
+        {
+            checkAndDestroy();
+            CreateBarel();
+        }
     }
 
     void checkAndDestroy()

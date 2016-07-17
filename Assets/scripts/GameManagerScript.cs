@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using System;
+//using System;
 using System.Text;
 using UnityEngine.UI;
 using System.Collections.Generic;
@@ -21,6 +21,7 @@ public class GameManagerScript : MonoBehaviour
     public Color brick1ColorEditor;
     public Color brick2ColorEditor;
     public Color brick3ColorEditor;
+    public List<GameObject> aliens;
 
     public Color[] brickColorEditor;
 
@@ -33,6 +34,8 @@ public class GameManagerScript : MonoBehaviour
     public GameObject[] brickTypes;
 
     private static int brickOnLevel;
+    private float timer;
+    public float timeToAliens = 3f;
 
     private int score;
     public int lifes;
@@ -58,7 +61,7 @@ public class GameManagerScript : MonoBehaviour
     void Update()
     {
         PrintOnScreen();
-
+        CreateAlien(aliens[Random.Range(0,aliens.Count)]);
     }
 
     void Init()
@@ -225,5 +228,18 @@ public class GameManagerScript : MonoBehaviour
         }
 
         BallScript.instance.resetBallPosition();
+    }
+
+    void CreateAlien(GameObject alien)
+    {
+        timer += Time.deltaTime;
+        float randomX = Random.Range(-9f, 10f);
+        float randomY = Random.Range(0, 7f);
+        if (timer >= timeToAliens)
+        {
+            Instantiate(alien, new Vector2(randomX, randomY), Quaternion.identity);
+            timer = 0;
+        }
+       
     }
 }

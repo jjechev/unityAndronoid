@@ -102,6 +102,7 @@ public class BallScript : MonoBehaviour
     public void SetStickBall()
     {
             stickBall = true;
+            stickBallCounter = 3600;
     }
 
     void StickBallCounter()
