@@ -12,7 +12,10 @@ public class GameManagerScript : MonoBehaviour
     public Text scoreText;
     public Text lifesText;
 
-	public int levelEditor;
+    public static int numberOfAliens = 0;
+
+
+    public int levelEditor;
     public static int level = 5;
 
     public static Color brick1Color;
@@ -73,8 +76,9 @@ public class GameManagerScript : MonoBehaviour
 
     void CreateLevel(int level)
     {
-        DestructionOfTheRemainingBricks();
-
+        DestructionOfTheRemainingObjects("brick");
+        DestructionOfTheRemainingObjects("alien");
+        
         float x = brickCanvasMinColPosition;
         float y = brickCanvasMinRowPosition;
         int index = 0;
@@ -182,14 +186,16 @@ public class GameManagerScript : MonoBehaviour
         }
     }
 
-    private void DestructionOfTheRemainingBricks()
+    private void DestructionOfTheRemainingObjects(string objectTagName)
     {
-        GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("brick");
+        GameObject[] gameObjects = GameObject.FindGameObjectsWithTag(objectTagName);
         foreach (GameObject target in gameObjects)
         {
             GameObject.Destroy(target);
         }
     }
+
+    
 
     public void IncScore(int addScore)
     {

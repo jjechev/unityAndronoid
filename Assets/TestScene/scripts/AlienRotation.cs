@@ -3,7 +3,7 @@ using System.Collections;
 
 public class AlienRotation : MonoBehaviour
 {
-
+    
     public float rotationSpeed;
     public ParticleSystem particle;
 
@@ -21,6 +21,14 @@ public class AlienRotation : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        if (GameManagerScript.numberOfAliens > 3)
+        {
+            GameManagerScript.numberOfAliens--;
+            Destroy(gameObject);
+        }
+        GameManagerScript.numberOfAliens++;
+        Debug.Log(GameManagerScript.numberOfAliens);
+
     }
 
     // Update is called once per frame
@@ -53,14 +61,21 @@ public class AlienRotation : MonoBehaviour
     }
     void OnCollisionEnter(Collision other)
     {
-        if(other.collider.tag == "ball")
+        if(other.collider.tag == "ball" || other.collider.tag == "player")
         {
             Instantiate(particle,transform.position, Quaternion.identity);
+            GameManagerScript.numberOfAliens--;
             Destroy(gameObject);
         }
-        else if (other.collider.tag == "wall" || other.collider.tag == "alien") { }
+        else if (other.collider.tag == "wall" || other.collider.tag == "alien")
+        {
+            //GameManagerScript.numberOfAliens--;
+            //Destroy(gameObject);
+        }
         else if (timerToDestroy < timeToDestroyIfSamePlace)
         {
+            GameManagerScript.numberOfAliens--;
+            timerToDestroy = 1;
             Destroy(gameObject);
         }
     }
