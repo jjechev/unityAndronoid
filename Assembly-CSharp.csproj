@@ -45,6 +45,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\AlienRotation.cs" />
      <Compile Include="Assets\Scripts\BallScript.cs" />
      <Compile Include="Assets\Scripts\BarelRotate.cs" />
      <Compile Include="Assets\Scripts\BarelScript.cs" />
@@ -55,7 +56,6 @@
      <Compile Include="Assets\Scripts\GameManagerScript.cs" />
      <Compile Include="Assets\Scripts\Levels.cs" />
      <Compile Include="Assets\Scripts\Player.cs" />
-     <Compile Include="Assets\TestScene\scripts\AlienRotation.cs" />
      <Compile Include="Assets\TestScene\scripts\Ball.cs" />
      <Compile Include="Assets\TestScene\scripts\paddle.cs" />
      <None Include="Assets\Plugins\Android\AndroidManifest.xml" />
