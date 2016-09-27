@@ -183,6 +183,7 @@ public class GameManagerScript : MonoBehaviour
 
             BallScript.instance.resetBallPosition();
             instance.CreateLevel(level);
+			numberOfAliens = 0;
         }
     }
 
