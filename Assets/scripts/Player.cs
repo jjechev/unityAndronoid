@@ -37,7 +37,7 @@ public class Player : MonoBehaviour
         //this.transform.Translate(Mathf.Clamp(moveX, -9, 9) * speed, 0f, 0f);
 
         float xPos = transform.position.x + (Input.GetAxisRaw("Horizontal") * speed);
-        transform.position = new Vector3(Mathf.Clamp(xPos, -8.8f, 8.8f), -4.5f, 0f);
+        transform.position = new Vector3(Mathf.Clamp(xPos, -8.2f, 8.2f), -4.5f, 0f);
 
         if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved)
         {
