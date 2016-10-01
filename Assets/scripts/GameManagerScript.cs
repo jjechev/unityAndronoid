@@ -4,6 +4,7 @@ using System.Text;
 using UnityEngine.UI;
 using System.Collections.Generic;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class GameManagerScript : MonoBehaviour
 {
@@ -232,8 +233,9 @@ public class GameManagerScript : MonoBehaviour
         lifes--;
         if (lifes == 0)
         {
-            level = 1;
-            CreateLevel(level);
+            //level = 1;
+            //CreateLevel(level);
+			SceneManager.LoadScene("game");
         }
 
         BallScript.instance.resetBallPosition();
