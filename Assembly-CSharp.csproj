@@ -45,6 +45,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Fonts\Script\scriptTexttest.cs" />
      <Compile Include="Assets\Scripts\AlienRotation.cs" />
      <Compile Include="Assets\Scripts\BallScript.cs" />
      <Compile Include="Assets\Scripts\BarelRotate.cs" />
@@ -55,11 +56,15 @@
      <Compile Include="Assets\Scripts\DestroyInSeconds.cs" />
      <Compile Include="Assets\Scripts\GameManagerScript.cs" />
      <Compile Include="Assets\Scripts\Levels.cs" />
+     <Compile Include="Assets\Scripts\LifesScript.cs" />
      <Compile Include="Assets\Scripts\Player.cs" />
      <Compile Include="Assets\TestScene\scripts\Ball.cs" />
      <Compile Include="Assets\TestScene\scripts\paddle.cs" />
+     <None Include="Assets\Fonts\Documentation\JazzCreateBubble_VersionHistory_1.1.txt" />
      <None Include="Assets\KY_effects\MagicEffectsPackFree\ReadMe.txt" />
+     <None Include="Assets\3dshader.shader" />
      <None Include="Assets\Plugins\Android\AndroidManifest.xml" />
+     <None Include="Assets\Fonts\Documentation\JazzCreateAltKeys_BubbleFont.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

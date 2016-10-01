@@ -11,6 +11,7 @@ public class GameManagerScript : MonoBehaviour
 
     public Text scoreText;
     public Text lifesText;
+	public TextMesh newScoreText;
 
     public static int numberOfAliens = 0;
 
@@ -201,6 +202,7 @@ public class GameManagerScript : MonoBehaviour
     public void IncScore(int addScore)
     {
         score += addScore;
+
     }
 
     public void IncLife(int addLifes)
@@ -212,7 +214,7 @@ public class GameManagerScript : MonoBehaviour
     {
         PrintLifes();
         scoreText.text = "SCORE: " + score;
-
+		newScoreText.text = "SCORE: " + score;
     }
 
     private void PrintLifes()
