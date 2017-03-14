@@ -163,7 +163,7 @@ public class GameManagerScript : MonoBehaviour
                 index = 0;
             }
         }
-        Debug.Log(brickOnLevel);
+        //Debug.Log(brickOnLevel);
     }
 
     public static void decreaseBricks()

@@ -3,6 +3,10 @@
 
 public class BallScript : MonoBehaviour
 {
+    public AudioClip[] sounds;
+    private AudioSource downWallSound;
+    private AudioSource playerSound;
+
     private AudioSource sound;
 
     // move
@@ -43,6 +47,8 @@ public class BallScript : MonoBehaviour
     void Start()
     {
         sound = GetComponent<AudioSource>();
+        downWallSound = GameObject.FindGameObjectWithTag("wallDown").GetComponent<AudioSource>();
+        playerSound = GameObject.FindGameObjectWithTag("player").GetComponent<AudioSource>();
 
         ballStartPositionX = this.transform.position.x;
         ballStartPositionY = this.transform.position.y;
@@ -161,12 +167,14 @@ public class BallScript : MonoBehaviour
 
         if (col.collider.tag == "wallDown")
         {
+            downWallSound.Play();
             GameManagerScript.instance.LostLife();
         }
 
 
         if (col.collider.tag == "player")
         {
+            playerSound.Play();
             GameObject paddle = GameObject.FindGameObjectWithTag("paddle");
             if (transform.position.y > paddle.transform.position.y + 0.4f)
             {
@@ -187,4 +195,8 @@ public class BallScript : MonoBehaviour
 
     }
 
+    public void PlaySounds(Collision col)
+    {
+
+    }
 }

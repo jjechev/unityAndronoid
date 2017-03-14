@@ -6,6 +6,7 @@ public class BarelScript : MonoBehaviour
     public int barelExistPercent;
     public float speed;
     public Material[] matirials;
+    private AudioSource sound;
 
     int letter;
 
@@ -26,6 +27,8 @@ public class BarelScript : MonoBehaviour
     {
         if (other.tag == "player")
         {
+            sound = GameObject.FindGameObjectWithTag("barrelSound").GetComponent<AudioSource>();
+            sound.Play();
             UseAndDestroyBarel();
         }
         if (other.tag == "wallDown")

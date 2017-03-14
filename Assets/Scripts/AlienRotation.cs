@@ -6,6 +6,7 @@ public class AlienRotation : MonoBehaviour
     
     public float rotationSpeed;
     public ParticleSystem particle;
+    private AudioSource sound;
 
     public float velocity;
 
@@ -61,8 +62,11 @@ public class AlienRotation : MonoBehaviour
     }
     void OnCollisionEnter(Collision other)
     {
+        
         if(other.collider.tag == "ball" || other.collider.tag == "player")
         {
+            sound = GameObject.FindGameObjectWithTag("alienSound").GetComponent<AudioSource>();
+            sound.Play();
             Instantiate(particle,transform.position, Quaternion.identity);
             GameManagerScript.numberOfAliens--;
             Destroy(gameObject);
