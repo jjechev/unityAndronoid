@@ -28,7 +28,7 @@ public class AlienRotation : MonoBehaviour
             Destroy(gameObject);
         }
         GameManagerScript.numberOfAliens++;
-        Debug.Log(GameManagerScript.numberOfAliens);
+        //Debug.Log(GameManagerScript.numberOfAliens);
 
     }
 

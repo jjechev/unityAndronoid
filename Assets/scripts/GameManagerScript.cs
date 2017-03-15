@@ -235,10 +235,15 @@ public class GameManagerScript : MonoBehaviour
         {
             //level = 1;
             //CreateLevel(level);
-			SceneManager.LoadScene("game");
+            SceneManager.LoadScene("menu");
         }
 
         BallScript.instance.resetBallPosition();
+    }
+
+    public void PlayAgain()
+    {
+        SceneManager.LoadScene("game");
     }
 
     void CreateAlien(GameObject alien)

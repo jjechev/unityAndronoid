@@ -3,7 +3,8 @@
 
 public class BallScript : MonoBehaviour
 {
-    public AudioClip[] sounds;
+    public ParticleSystem particles;
+
     private AudioSource downWallSound;
     private AudioSource playerSound;
 
@@ -168,6 +169,7 @@ public class BallScript : MonoBehaviour
         if (col.collider.tag == "wallDown")
         {
             downWallSound.Play();
+            particles.Play();
             GameManagerScript.instance.LostLife();
         }
 
