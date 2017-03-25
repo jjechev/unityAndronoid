@@ -39,8 +39,9 @@ public class Brick2Script : MonoBehaviour
 
             Color color = GetComponent<Renderer>().material.color;
             ParticleSystem Particlez = (ParticleSystem)Instantiate(BrickParticle, transform.position, Quaternion.identity);
+#pragma warning disable CS0618 // Type or member is obsolete
             Particlez.startColor = color;
-            Debug.Log(Particlez.startColor);
+#pragma warning restore CS0618 // Type or member is obsolete
 
             this.gameObject.SetActive(false);
             GameManagerScript.decreaseBricks();

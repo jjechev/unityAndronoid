@@ -169,7 +169,7 @@ public class GameManagerScript : MonoBehaviour
     public static void decreaseBricks()
     {
         brickOnLevel--;
-        Debug.Log(brickOnLevel);
+        //Debug.Log(brickOnLevel);
     }
 
     public void CheckAndGoNextLevel()
@@ -235,16 +235,16 @@ public class GameManagerScript : MonoBehaviour
         {
             //level = 1;
             //CreateLevel(level);
-            SceneManager.LoadScene("menu");
+            SceneManager.LoadScene("game");
         }
 
         BallScript.instance.resetBallPosition();
     }
 
-    public void PlayAgain()
-    {
-        SceneManager.LoadScene("game");
-    }
+    //public void PlayAgain()
+    //{
+    //    SceneManager.LoadScene("game");
+    //}
 
     void CreateAlien(GameObject alien)
     {

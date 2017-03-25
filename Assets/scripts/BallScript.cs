@@ -38,6 +38,19 @@ public class BallScript : MonoBehaviour
     float ballIncSpeedOnCollision = 1.005f;
     float ballDecSpeed = 0.2f;
 
+    public float BallStartPositionX
+    {
+        get
+        {
+            return ballStartPositionX;
+        }
+
+        set
+        {
+            ballStartPositionX = value;
+        }
+    }
+
     void Awake()
     {
         instance = this;
@@ -51,7 +64,7 @@ public class BallScript : MonoBehaviour
         downWallSound = GameObject.FindGameObjectWithTag("wallDown").GetComponent<AudioSource>();
         playerSound = GameObject.FindGameObjectWithTag("player").GetComponent<AudioSource>();
 
-        ballStartPositionX = this.transform.position.x;
+        BallStartPositionX = this.transform.position.x;
         ballStartPositionY = this.transform.position.y;
     }
 

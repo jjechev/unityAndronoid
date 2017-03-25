@@ -13,16 +13,19 @@ public class StartGameScript : MonoBehaviour
     public float haloSpeed;
     bool haloBig;
     float haloRange;
+    public static StartGameScript instance;
 
-	void Awake()
+
+    void Awake()
 	{
-        scoreText.SetActive(false);
+        instance = this;
 		Time.timeScale = 0;
 		player.SetActive (false);
     }
 
     void Start()
     {
+        
         haloRange = 5f;
     }
 

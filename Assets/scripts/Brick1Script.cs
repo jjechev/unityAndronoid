@@ -31,9 +31,8 @@ public class Brick1Script : MonoBehaviour
     void checkAndDestroy()
     {
         Color color = GetComponent<Renderer>().material.color;
-        ParticleSystem Particlez =  (ParticleSystem)Instantiate(BrickParticle, transform.position, Quaternion.identity);
-        Particlez.startColor = color;
-        Debug.Log(Particlez.startColor);
+        //ParticleSystem Particlez =  (ParticleSystem)Instantiate(BrickParticle, transform.position, Quaternion.identity);
+        //Particlez.startColor = color;
 
 
         GameManagerScript.decreaseBricks();
