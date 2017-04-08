@@ -16,7 +16,7 @@
     <CompilerResponseFile></CompilerResponseFile>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>Android:13</UnityBuildTarget>
-    <UnityVersion>5.6.0b11</UnityVersion>
+    <UnityVersion>5.6.0f1</UnityVersion>
     <RootNamespace></RootNamespace>
     <LangVersion Condition=" '$(VisualStudioVersion)' != '10.0' ">4</LangVersion>
   </PropertyGroup>
@@ -78,30 +78,33 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\FadeOutScript.cs" />
     <Compile Include="Assets\Fonts\Script\scriptTexttest.cs" />
-    <Compile Include="Assets\Scripts\AlienRotation.cs" />
-    <Compile Include="Assets\Scripts\AnronoidTextScript.cs" />
-    <Compile Include="Assets\Scripts\BallScript.cs" />
-    <Compile Include="Assets\Scripts\BarelRotate.cs" />
-    <Compile Include="Assets\Scripts\BarelScript.cs" />
-    <Compile Include="Assets\Scripts\Brick1Script.cs" />
-    <Compile Include="Assets\Scripts\Brick2Script.cs" />
-    <Compile Include="Assets\Scripts\Brick3Script.cs" />
-    <Compile Include="Assets\Scripts\DestroyInSeconds.cs" />
-    <Compile Include="Assets\Scripts\GameManagerScript.cs" />
-    <Compile Include="Assets\Scripts\Levels.cs" />
-    <Compile Include="Assets\Scripts\LifesScript.cs" />
-    <Compile Include="Assets\Scripts\Menu\StartGameScript.cs" />
-    <Compile Include="Assets\Scripts\Player.cs" />
-    <Compile Include="Assets\Scripts\StartButtonScript.cs" />
-    <Compile Include="Assets\Scripts\paddle.cs" />
+    <Compile Include="Assets\TeleportScript.cs" />
     <Compile Include="Assets\TestScene\scripts\Ball.cs" />
+    <Compile Include="Assets\_Scripts\AlienRotation.cs" />
+    <Compile Include="Assets\_Scripts\AnronoidTextScript.cs" />
+    <Compile Include="Assets\_Scripts\BallScript.cs" />
+    <Compile Include="Assets\_Scripts\BarelRotate.cs" />
+    <Compile Include="Assets\_Scripts\BarelScript.cs" />
+    <Compile Include="Assets\_Scripts\Brick1Script.cs" />
+    <Compile Include="Assets\_Scripts\Brick2Script.cs" />
+    <Compile Include="Assets\_Scripts\Brick3Script.cs" />
+    <Compile Include="Assets\_Scripts\DestroyInSeconds.cs" />
+    <Compile Include="Assets\_Scripts\GameManagerScript.cs" />
+    <Compile Include="Assets\_Scripts\Levels.cs" />
+    <Compile Include="Assets\_Scripts\LifesScript.cs" />
+    <Compile Include="Assets\_Scripts\Menu\StartGameScript.cs" />
+    <Compile Include="Assets\_Scripts\MovieScrip.cs" />
+    <Compile Include="Assets\_Scripts\Player.cs" />
+    <Compile Include="Assets\_Scripts\StartButtonScript.cs" />
+    <Compile Include="Assets\_Scripts\paddle.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\3dshader.shader" />
     <None Include="Assets\Fonts\Documentation\JazzCreateAltKeys_BubbleFont.txt" />
     <None Include="Assets\Fonts\Documentation\JazzCreateBubble_VersionHistory_1.1.txt" />
     <None Include="Assets\KY_effects\MagicEffectsPackFree\ReadMe.txt" />
+    <None Include="Assets\Textures\3dshader.shader" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

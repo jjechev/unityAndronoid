@@ -67,8 +67,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1654271987267386}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -3.7337031, y: 3.7046847, z: -9.508871}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4265361793634482}
@@ -374,6 +374,8 @@ MonoBehaviour:
   scoreText: {fileID: 0}
   lifesText: {fileID: 0}
   newScoreText: {fileID: 0}
+  levelText: {fileID: 1786474796728764, guid: 14267c0f7696be04293d9f91725f5a45, type: 2}
+  levelNumber: {fileID: 0}
   levelEditor: 1
   brick1ColorEditor: {r: 1, g: 1, b: 1, a: 1}
   brick2ColorEditor: {r: 0.4, g: 0.4, b: 0.4, a: 1}
@@ -399,4 +401,4 @@ MonoBehaviour:
   - {fileID: 1000013768138656, guid: 3adf7950f34228446a7f5433e0cc881b, type: 2}
   - {fileID: 1000011704847516, guid: 1c839d00f9155474eba9b10aef88b0f9, type: 2}
   timeToAliens: 3
-  lifes: 3
+  lifes: 5
